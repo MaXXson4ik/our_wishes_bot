@@ -1,0 +1,11 @@
+
+services:
+  - type: worker          # фоновой процесс, без проверки портов
+    name: telegram-bot
+    env: python
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python main.py"
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
